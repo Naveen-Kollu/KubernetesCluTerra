@@ -13,4 +13,6 @@ jobs:
     with:
       environment: azure538
       kubernetestffilesfolder: 'CreateKubernetesCluster'
+      gituser: naveen kumar
+      gitemailid: naveen538.k@gmail.com
     secrets: inherit
