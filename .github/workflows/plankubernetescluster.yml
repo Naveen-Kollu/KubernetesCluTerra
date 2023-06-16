@@ -9,7 +9,7 @@ on:
 jobs:
   call-parules-pr:
     name:  Creating Kubernetes Cluster
-    uses: Naveen-Kollu/ApoTestingCP/.github/workflows/CreateKubernetesCluster.yml@main
+    uses: Naveen-Kollu/ApoTestingCP/.github/workflows/PlanKubernetesCluster.yml@main
     with:
       kubernetestffilesfolder: 'CreateKubernetesCluster'
     secrets: inherit
