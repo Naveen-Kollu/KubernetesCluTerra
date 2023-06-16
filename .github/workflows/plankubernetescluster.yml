@@ -1,5 +1,5 @@
-name: create-cluster-azure
-run-name: ${{ github.actor }} is running for creating cluster on Azure
+name: plan-kubernetes-cluster-azure
+run-name: ${{ github.actor }} is running for planned kubernetes cluster on Azure
 
 on:
   push:
@@ -7,8 +7,8 @@ on:
       - main
 
 jobs:
-  call-parules-pr:
-    name:  Creating Kubernetes Cluster
+  call-plan-kubernetes-cluster:
+    name:  planning Kubernetes Cluster
     uses: Naveen-Kollu/ApoTestingCP/.github/workflows/PlanKubernetesCluster.yml@main
     with:
       environment: 'azure538'
