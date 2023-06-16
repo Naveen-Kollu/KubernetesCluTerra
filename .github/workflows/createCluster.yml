@@ -1,0 +1,15 @@
+name: create-cluster-azure
+run-name: ${{ github.actor }} is running for creating cluster on Azure
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  call-parules-pr:
+    name:  Creating Kubernetes Cluster
+    uses: Naveen-Kollu/ApoTestingCP/.github/workflows/CreateKubernetesCluster.yml@main
+    with:
+      kubernetestffilesfolder: 'CreateKubernetesCluster'
+      
