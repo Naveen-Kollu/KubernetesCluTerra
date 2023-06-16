@@ -12,4 +12,4 @@ jobs:
     uses: Naveen-Kollu/ApoTestingCP/.github/workflows/CreateKubernetesCluster.yml@main
     with:
       kubernetestffilesfolder: 'CreateKubernetesCluster'
-      secrets: inherit
+    secrets: inherit
