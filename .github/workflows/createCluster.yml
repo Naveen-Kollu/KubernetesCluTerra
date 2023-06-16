@@ -11,5 +11,6 @@ jobs:
     name:  Creating Kubernetes Cluster
     uses: Naveen-Kollu/ApoTestingCP/.github/workflows/CreateKubernetesCluster.yml@main
     with:
+      environment: azure538
       kubernetestffilesfolder: 'CreateKubernetesCluster'
     secrets: inherit
