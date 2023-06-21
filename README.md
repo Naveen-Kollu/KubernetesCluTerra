@@ -1,2 +1,2 @@
 # KubernetesCluTerra
-Creating Kubernetes cluster using Terraform script1
+Creating Kubernetes cluster using Terraform script
