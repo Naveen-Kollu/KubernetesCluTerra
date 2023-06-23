@@ -1,0 +1,33 @@
+name: deploy-kubernetes-cluster-in-test
+run-name: ${{ github.actor }}is running for creating Kubernetes Cluster in Test Environment
+
+
+on:
+  workflow_run:
+    workflows: ["deploy-kubernetes-cluster-in-dev" ]
+    branches: [ main ]
+    types:
+      - completed
+      
+jobs:
+  call-plan-kubernetes-cluster-in-test:
+    name:  planning Kubernetes Cluster in Test
+    uses: Naveen-Kollu/ApoTestingCP/.github/workflows/PlanKubernetesCluster.yml@main
+    with:
+      environment: 'common'
+      kubernetestffilesfolder: 'CreateKubernetesClustertest'
+    secrets: inherit
+    
+  call-kubernetescluster-creation-test:
+    needs: call-plan-kubernetes-cluster-in-test
+    name: Create Kubernetes Cluster in Test environment
+    uses: Naveen-Kollu/ApoTestingCP/.github/workflows/createKubernetesCluster.yml@main
+    with:
+      environment: 'azure538test'
+      kubernetestffilesfolder: 'CreateKubernetesClustertest'
+      gituser: naveen kumar
+      gitemailid: naveen538.k@gmail.com
+    secrets: inherit  
+
+
+    
