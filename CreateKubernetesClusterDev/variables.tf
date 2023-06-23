@@ -1,13 +1,13 @@
 variable "resource_group_name" {
   type        = string
   description = "The name of the resource group to create."
-  default     = "Team2Test"
+  default     = "Team2"
 }
 
 variable "clustername" {
   type        = string
   description = "The name of the cluster name to create."
-  default     = "Team2kubclunameTest"
+  default     = "Team2kubcluname"
 }
 
 variable "sa_name" {
@@ -20,35 +20,35 @@ variable "sa_name" {
 variable "azzuremission_team2_vnet" {
   type        = string
   description = "The name of the vnet to create."
-  default     = "team2vnetKubCluTest"
+  default     = "team2vnetKubClu"
 
 }
 
 variable "azzuremission_team2_subnet_deployagent" {
   type        = string
   description = "The name of the subnet to create."
-  default     = "team2subnetKubCluTest"
+  default     = "team2subnetKubClu"
 
 }
 
 variable "azzuremission_team2_subnet_deployagent_nsg" {
   type        = string
   description = "The name of the nsg to create."
-  default     = "team2subnetNSGKubCluTest"
+  default     = "team2subnetNSGKubClu"
 
 }
 
 variable "moodtemplate_sa_name" {
   type        = string
   description = "The name of the storage account to create."
-  default     = "moodtemplatesanameTest"
+  default     = "moodtemplatesaname"
 
 }
 
 variable "sa_container" {
   type        = string
   description = "storage account container name."
-  default     = "team2storagenKubCluTest"
+  default     = "team2storagenKubClu"
 }
 
 variable "tenant_id" {
@@ -59,7 +59,7 @@ variable "tenant_id" {
 variable "kv_name" {
   type        = string
   description = "tenant id"
-  default     = "team2KayvaltKubCluTest"
+  default     = "team2KayvaltKubClu"
 }
 
 
