@@ -23,10 +23,10 @@ resource "azurerm_subnet" "KubernetesSubnet" {
 }
 
 resource "azurerm_kubernetes_cluster" "Team2KubCluName" {
-  name                = "Team2KubCluName"
+  name                = "var.clustername"
   location            = var.location
   resource_group_name = var.resource_group_name
-  dns_prefix          = "my-aks-cluster"
+  dns_prefix          = var.clustername
 
   default_node_pool {
     name                  = "default"
@@ -53,17 +53,22 @@ resource "azurerm_kubernetes_cluster" "Team2KubCluName" {
   tags = {
     Environment = "Dev/Test"
   }
-  addon_profile {
-     kube_dashboard {
-      enabled = true
-     }
-     kube_monitoring {
-      enabled = true
-     }
-     ingress_application_gateway {
-      enabled = false
-     }
-  } 
   sku_tier           = "Free"
   kubernetes_version = "1.26.0"
+}
+
+resource "azurerm_kubernetes_cluster_addon_profile" var.clustername {
+  cluster_name         = azurerm_kubernetes_cluster.Team2KubCluName.name
+  resource_group_name  = var.resource_group_name
+  addon_profile {
+    kube_dashboard {
+      enabled = true
+    }
+    kube_monitoring {
+      enabled = true
+    }
+    ingress_application_gateway {
+      enabled = false
+    }
+  }
 }
