@@ -10,12 +10,22 @@ on:
       - completed
 
 jobs:
-  call-kubernetescluster-creation:
-    name: Create Kubernetes Cluster
+  call-kubernetescluster-creation-dev:
+    name: Create Kubernetes Cluster in dev environment
     uses: Naveen-Kollu/ApoTestingCP/.github/workflows/createKubernetesCluster.yml@main
     with:
       environment: 'azure538'
-      kubernetestffilesfolder: 'CreateKubernetesCluster'
+      kubernetestffilesfolder: 'CreateKubernetesClusterdev'
       gituser: naveen kumar
       gitemailid: naveen538.k@gmail.com
     secrets: inherit
+    
+  call-kubernetescluster-creation-test:
+    name: Create Kubernetes Cluster in Test environment
+    uses: Naveen-Kollu/ApoTestingCP/.github/workflows/createKubernetesCluster.yml@main
+    with:
+      environment: 'azure538test'
+      kubernetestffilesfolder: 'CreateKubernetesClustertest'
+      gituser: naveen kumar
+      gitemailid: naveen538.k@gmail.com
+    secrets: inherit  
