@@ -23,7 +23,7 @@ resource "azurerm_subnet" "KubernetesSubnet" {
 }
 
 resource "azurerm_kubernetes_cluster" "Team2KubCluName" {
-  name                = "var.clustername"
+  name                = var.clustername
   location            = var.location
   resource_group_name = var.resource_group_name
   dns_prefix          = var.clustername
@@ -57,7 +57,7 @@ resource "azurerm_kubernetes_cluster" "Team2KubCluName" {
   kubernetes_version = "1.26.0"
 }
 
-resource "azurerm_kubernetes_cluster_addon_profile" var.clustername {
+resource "azurerm_kubernetes_cluster_addon_profile" "Team2KubCluNameaddon" {
   cluster_name         = azurerm_kubernetes_cluster.Team2KubCluName.name
   resource_group_name  = var.resource_group_name
   addon_profile {
