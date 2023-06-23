@@ -3,6 +3,8 @@ run-name: ${{ github.actor }} is running for creating kubernetes cluster in Dev 
 
 on:
   push:
+    paths:
+      - 'CreateKubernetesClusterDev/**'
     branches:
       - main
 
