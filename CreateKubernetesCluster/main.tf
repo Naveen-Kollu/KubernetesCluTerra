@@ -53,7 +53,17 @@ resource "azurerm_kubernetes_cluster" "Team2KubCluName" {
   tags = {
     Environment = "Dev/Test"
   }
-
+  addon_profile {
+     kube_dashboard {
+      enabled = true
+     }
+     kube_monitoring {
+      enabled = true
+     }
+     ingress_application_gateway {
+      enabled = false
+     }
+  } 
   sku_tier           = "Free"
   kubernetes_version = "1.26.0"
 }
