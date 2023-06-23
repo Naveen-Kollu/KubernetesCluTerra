@@ -37,6 +37,9 @@ variable "azzuremission_team2_subnet_deployagent_nsg" {
   default     = "team2subnetNSGKubClu"
 
 }
+variable "diagnostics_workspace_id" {
+  description = "log analytics workspace id for cluster audit"
+}
 
 
 
