@@ -50,16 +50,6 @@ resource "azurerm_kubernetes_cluster" "Team2KubCluName" {
     load_balancer_sku = "standard"
   }
 
-  tags = {
-    Environment = "Dev/Test"
-  }
-  sku_tier           = "Free"
-  kubernetes_version = "1.26.0"
-}
-
-resource "azurerm_kubernetes_cluster_addon_profile" "Team2KubCluNameaddon" {
-  cluster_name         = azurerm_kubernetes_cluster.Team2KubCluName.name
-  resource_group_name  = var.resource_group_name
   addon_profile {
     kube_dashboard {
       enabled = true
@@ -71,4 +61,11 @@ resource "azurerm_kubernetes_cluster_addon_profile" "Team2KubCluNameaddon" {
       enabled = false
     }
   }
+
+  tags = {
+    Environment = "Dev/Test"
+  }
+  sku_tier           = "Free"
+  kubernetes_version = "1.26.0"
 }
+
