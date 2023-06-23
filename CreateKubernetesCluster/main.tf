@@ -59,7 +59,7 @@ resource "azurerm_kubernetes_cluster" "Team2KubCluName" {
 
 resource "azurerm_monitor_diagnostic_setting" "aks_cluster" {
   name                       = "${azurerm_kubernetes_cluster.Team2KubCluName.name}-audit"
-  target_resource_id         = azurerm_kubernetes_cluster.cluster.id
+  target_resource_id         = azurerm_kubernetes_cluster.Team2KubCluName.id
   log_analytics_workspace_id = var.diagnostics_workspace_id
 
   log {
