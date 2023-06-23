@@ -1,5 +1,5 @@
 name: deploy-kubernetes-cluster-in-dev
-run-name: ${{ github.actor }} is running for plan kubernetes cluster on Azure
+run-name: ${{ github.actor }} is running for creating kubernetes cluster in Dev environment
 
 on:
   push:
