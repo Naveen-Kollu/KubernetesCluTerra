@@ -50,22 +50,70 @@ resource "azurerm_kubernetes_cluster" "Team2KubCluName" {
     load_balancer_sku = "standard"
   }
 
-  addon_profile {
-    kube_dashboard {
-      enabled = true
-    }
-    kube_monitoring {
-      enabled = true
-    }
-    ingress_application_gateway {
-      enabled = false
-    }
-  }
-
   tags = {
     Environment = "Dev/Test"
   }
   sku_tier           = "Free"
   kubernetes_version = "1.26.0"
+}
+
+resource "azurerm_monitor_diagnostic_setting" "aks_cluster" {
+  name                       = "${azurerm_kubernetes_cluster.Team2KubCluName.name}-audit"
+  target_resource_id         = azurerm_kubernetes_cluster.cluster.id
+  log_analytics_workspace_id = var.diagnostics_workspace_id
+
+  log {
+    category = "kube-apiserver"
+    enabled  = true
+
+    retention_policy {
+      enabled = false
+    }
+  }
+
+  log {
+    category = "kube-controller-manager"
+    enabled  = true
+
+    retention_policy {
+      enabled = false
+    }
+  }
+
+  log {
+    category = "cluster-autoscaler"
+    enabled  = true
+
+    retention_policy {
+      enabled = false
+    }
+  }
+
+  log {
+    category = "kube-scheduler"
+    enabled  = true
+
+    retention_policy {
+      enabled = false
+    }
+  }
+
+  log {
+    category = "kube-audit"
+    enabled  = true
+
+    retention_policy {
+      enabled = false
+    }
+  }
+
+  metric {
+    category = "AllMetrics"
+    enabled  = false
+
+    retention_policy {
+      enabled = false
+    }
+  }
 }
 
