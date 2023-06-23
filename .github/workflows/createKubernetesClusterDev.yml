@@ -1,0 +1,27 @@
+name: deploy-kubernetes-cluster-in-dev
+run-name: ${{ github.actor }} is running for plan kubernetes cluster on Azure
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  call-plan-kubernetes-cluster-in-dev:
+    name: planning Kubernetes Cluster
+    uses: Naveen-Kollu/ApoTestingCP/.github/workflows/PlanKubernetesCluster.yml@main
+    with:
+      environment: 'common'
+      kubernetestffilesfolder: 'CreateKubernetesClusterDev'
+    secrets: inherit
+    
+  call-kubernetescluster-creation-dev:
+    needs: call-plan-kubernetes-cluster-in-dev
+    name: Create Kubernetes Cluster in dev environment
+    uses: Naveen-Kollu/ApoTestingCP/.github/workflows/createKubernetesCluster.yml@main
+    with:
+      environment: 'azure538'
+      kubernetestffilesfolder: 'CreateKubernetesClusterDev'
+      gituser: naveen kumar
+      gitemailid: naveen538.k@gmail.com
+    secrets: inherit

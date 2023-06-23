@@ -15,7 +15,7 @@ jobs:
     uses: Naveen-Kollu/ApoTestingCP/.github/workflows/PlanKubernetesCluster.yml@main
     with:
       environment: 'common'
-      kubernetestffilesfolder: 'CreateKubernetesClustertest'
+      kubernetestffilesfolder: 'CreateKubernetesClusterTest'
     secrets: inherit
     
   call-kubernetescluster-creation-test:
@@ -24,7 +24,7 @@ jobs:
     uses: Naveen-Kollu/ApoTestingCP/.github/workflows/createKubernetesCluster.yml@main
     with:
       environment: 'azure538test'
-      kubernetestffilesfolder: 'CreateKubernetesClustertest'
+      kubernetestffilesfolder: 'CreateKubernetesClusterTest'
       gituser: naveen kumar
       gitemailid: naveen538.k@gmail.com
     secrets: inherit  
