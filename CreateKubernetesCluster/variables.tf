@@ -4,6 +4,12 @@ variable "resource_group_name" {
   default     = "Team2"
 }
 
+variable "clustername" {
+  type        = string
+  description = "The name of the cluster name to create."
+  default     = "Team2kubcluname"
+}
+
 variable "sa_name" {
   type        = string
   description = "The name of the storage account to create."
