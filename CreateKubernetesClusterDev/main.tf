@@ -30,7 +30,7 @@ resource "azurerm_kubernetes_cluster" "Team2KubCluName" {
     name                  = "default"
     vm_size               = "Standard_DS2_v2"
     enable_auto_scaling   = true
-    min_count             = 3
+    min_count             = 2
     max_count             = 5
     enable_node_public_ip = false
     os_disk_size_gb       = 30
