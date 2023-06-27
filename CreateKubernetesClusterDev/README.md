@@ -1,4 +1,4 @@
-# Terraform1
+# Terraform
 # What you are doing - List of steps
 1.
 2.
